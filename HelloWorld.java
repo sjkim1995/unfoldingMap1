@@ -11,8 +11,8 @@ import de.fhpotsdam.unfolding.utils.MapUtils;
 /** HelloWorld
   * An application with two maps side-by-side zoomed in on different locations.
   * Author: UC San Diego Coursera Intermediate Programming team
-  * @author Your name here
-  * Date: July 17, 2015
+  * @author Seon Joong Kim
+  * Date: May 30, 2017
   * */
 public class HelloWorld extends PApplet
 {
@@ -36,7 +36,7 @@ public class HelloWorld extends PApplet
 	UnfoldingMap map2;
 
 	public void setup() {
-		size(800, 600, P2D);  // Set up the Applet window to be 800x600
+		size(825, 600, P2D);  // Set up the Applet window to be 800x600
 		                      // The OPENGL argument indicates to use the 
 		                      // Processing library's 2D drawing
 		                      // You'll learn more about processing in Module 3
@@ -48,7 +48,7 @@ public class HelloWorld extends PApplet
 		// Select a map provider
 		AbstractMapProvider provider = new Google.GoogleTerrainProvider();
 		// Set a zoom level
-		int zoomLevel = 10;
+		int zoomLevel = 12;
 		
 		if (offline) {
 			// If you are working offline, you need to use this provider 
@@ -74,16 +74,23 @@ public class HelloWorld extends PApplet
 		// This line makes the map interactive
 		MapUtils.createDefaultEventDispatcher(this, map1);
 		
-		// TODO: Add code here that creates map2 
-		// Then you'll modify draw() below
+		// Instantiate second map
+		map2 = new UnfoldingMap(this, 425, 50, 350, 500, provider);
+		
+		// Set to Harvard Dorm
+		map2.zoomAndPanTo(zoomLevel, new Location(42.3702493f, -71.123160f));
+		
+		// Make the second map interactive
+		MapUtils.createDefaultEventDispatcher(this, map2);
+		
 
 	}
 
 	/** Draw the Applet window.  */
 	public void draw() {
-		// So far we only draw map1...
-		// TODO: Add code so that both maps are displayed
+		// call the draw method on both maps
 		map1.draw();
+		map2.draw();
 	}
 
 	
