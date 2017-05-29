@@ -36,7 +36,7 @@ public class HelloWorld extends PApplet
 	UnfoldingMap map2;
 
 	public void setup() {
-		size(825, 600, P2D);  // Set up the Applet window to be 800x600
+		size(850, 600, P2D);  // Set up the Applet window to be 800x600
 		                      // The OPENGL argument indicates to use the 
 		                      // Processing library's 2D drawing
 		                      // You'll learn more about processing in Module 3
@@ -75,7 +75,7 @@ public class HelloWorld extends PApplet
 		MapUtils.createDefaultEventDispatcher(this, map1);
 		
 		// Instantiate second map
-		map2 = new UnfoldingMap(this, 425, 50, 350, 500, provider);
+		map2 = new UnfoldingMap(this, 450, 50, 350, 500, provider);
 		
 		// Set to Harvard Dorm
 		map2.zoomAndPanTo(zoomLevel, new Location(42.3702493f, -71.123160f));
